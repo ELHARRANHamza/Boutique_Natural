@@ -1,0 +1,306 @@
+﻿@RenderSection("Admin", required: false)
+@if (IsSectionDefined("Admin"))
+{
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Static Navigation - SB Admin</title>
+        <link href="~/Admin/dist/css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="/Dashbord/index">Start Administrator</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+                <i class="fas fa-bars"></i>
+            </button><!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <partial name="_PartialLogin_Admin">
+
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark sb-nav-fixed" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="/Dashbord/index">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/Articles/index">Articles</a>
+                                    <a class="nav-link" href="/Categories/Index">Catégories</a>
+                                </nav>
+                            </div>
+                       
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCommandes" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bullhorn"></i></div>
+                                Commandes
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseCommandes" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/Commande_Client/Index">Commande Envoyée</a>
+                                    <a class="nav-link" href="/Commande_Client/Commande_Valider">Commande Accepter</a>
+                                    <a class="nav-link" href="/Commande_Client/Commande_Attente">Liste D'attente</a>
+                                    <a class="nav-link" href="/Commande_Client/Commande_Refuser">Commande refuser</a>
+                                </nav>
+                            </div>
+
+
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                           <a class="nav-link" href="/Gestion_Roles/Index">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Gestion Roles
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content" style="padding-top:60px">
+                <main>
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="~/Admin/dist/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="~/Admin/dist/assets/demo/chart-area-demo.js"></script>
+        <script src="~/Admin/dist/assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="~/Admin/dist/assets/demo/datatables-demo.js"></script>
+    </body>
+}
+
+
+
+@RenderSection("login", required: false)
+@if (IsSectionDefined("login") && !IsSectionDefined("Admin"))
+{
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <!-- Site made with Mobirise Website Builder v4.8.8, https://mobirisethemes.com -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="generator" content="Mobirise v4.8.8, mobirisethemes.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <link rel="shortcut icon" href="~/Login/assets/images/logo2.png" type="image/x-icon">
+        <meta name="description" content="">
+        <title>Bootstrap Login Page Template</title>
+        <link rel="stylesheet" href="~/Login/assets/web/assets/mobirise-icons/mobirise-icons.css">
+        <link rel="stylesheet" href="~/Login/assets/tether/tether.min.css">
+        <link rel="stylesheet" href="~/Login/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Login/assets/bootstrap/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="~/Login/assets/bootstrap/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="~/Login/assets/dropdown/css/style.css">
+        <link rel="stylesheet" href="~/Login/assets/theme/css/style.css">
+        <link rel="stylesheet" href="~/Login/assets/mobirise/css/mbr-additional.css" type="text/css">
+
+
+
+    </head>
+    <body>
+        <section class="menu1 menu cid-raTI2NFMfz" once="menu" id="menu1-0">
+
+
+
+
+            <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+                <div class="navbar-brand">
+
+                    <span class="navbar-caption-wrap mbr-section-btn">
+                        <a class="navbar-caption text-warning display-4" href="https://mobirisethemes.com">
+                            Bootstrap Login Page Template
+                        </a>
+                    </span>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-dropdown mbr-section-btn" data-app-modern-menu="true">
+                        <li class="nav-item">
+                            <a class="nav-link link text-warning display-4" href="https://mobirisethemes.com">
+                                Home
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-buttons mbr-section-btn">
+                        <a class="btn btn-sm btn-success display-4" href="index.html#form4-1">
+                            Contact form
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        @RenderBody()
+
+        <section class="footer2 cid-rb9SpE6JLx" once="footer" id="footer2-5">
+
+
+
+
+
+            <div class="container">
+                <div class="row justify-content-center mbr-white">
+                    <div class="col-12">
+                        <p class="mbr-text mb-0 mbr-fonts-style align-center display-7">
+                            © Copyright 2018 Bootstrap Login Page Template - All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="~/Login/assets/web/assets/jquery/jquery.min.js"></script>
+        <script src="~/Login/assets/popper/popper.min.js"></script>
+        <script src="~/Login/assets/tether/tether.min.js"></script>
+        <script src="~/Login/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="~/Login/assets/smoothscroll/smooth-scroll.js"></script>
+        <script src="~/Login/assets/dropdown/js/script.min.js"></script>
+        <script src="~/Login/assets/touchswipe/jquery.touch-swipe.min.js"></script>
+        <script src="~/Login/assets/theme/js/script.js"></script>
+        <script src="~/Login/assets/formoid/formoid.min.js"></script>
+
+
+    </body>
+</html>
+}
+
+@RenderSection("Home", required: false)
+@if (IsSectionDefined("Home") && !IsSectionDefined("Admin") && !IsSectionDefined("login"))
+{
+
+<html>
+<head>
+    <!-- Site made with Mobirise Website Builder v4.8.8, https://mobirisethemes.com -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.8.8, mobirisethemes.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="~/assets/images/logo2.png" type="image/x-icon">
+    <meta name="description" content="">
+    <title>Bootstrap eСommerce Template</title>
+    <link rel="stylesheet" href="~/assets/web/assets/mobirise-icons/mobirise-icons.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="~/assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="~/assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="~/assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="~/assets/theme/css/style.css">
+    <link rel="stylesheet" href="~/assets/gallery/style.css">
+    <link rel="stylesheet" href="~/assets/mobirise/css/mbr-additional.css" type="text/css">
+
+
+
+</head>
+<body>
+    <section class="menu cid-rbb1P7Oggj" once="menu" id="menu1-5" data-sortbtn="btn-primary">
+
+
+
+
+        <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+            <div class="navbar-brand">
+
+                <span class="navbar-caption-wrap">
+                    <a class="navbar-caption text-black display-2" href="/Home/Index">
+                        Boutique Natural
+                    </a>
+                </span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="/Home/Index">
+                            ELHARRAN SHOP
+                        </a>
+                    </li>
+                </ul>
+                @using Microsoft.AspNetCore.Identity
+
+                @inject SignInManager<Boutique_Natural.Models.AppUsers> SignInManager
+                @inject UserManager<Boutique_Natural.Models.AppUsers> UserManager
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <div class="navbar-buttons mbr-section-btn">
+                        <a class="btn btn-sm btn-info display-4" href="/Dashbord/Index">
+                            Dashbord
+                        </a>
+                    </div>
+                }
+                </div>
+        </nav>
+    </section>
+
+    @RenderBody()
+
+   
+    <script src="~/assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="~/assets/popper/popper.min.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="~/assets/touchswipe/jquery.touch-swipe.min.js"></script>
+    <script src="~/assets/mobirise-shop/script.js"></script>
+    <script src="~/assets/dropdown/js/script.min.js"></script>
+    <script src="~/assets/theme/js/script.js"></script>
+    <script src="~/assets/gallery/player.min.js"></script>
+    <script src="~/assets/gallery/script.js"></script>
+
+
+</body>
+</html>
+}

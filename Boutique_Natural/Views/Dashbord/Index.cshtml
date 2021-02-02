@@ -1,0 +1,162 @@
+﻿
+<h1 class="mt-4">Dashboard</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Dashboard</li>
+</ol>
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Nombre Du Client</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.NbClt</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Totals (Fonds)</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">$@ViewBag.ttl</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">La Quantité des produits vendus </div>
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-auto">
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@ViewBag.nb_Art_Achat</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">La Commande Refuser</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.cmd_Refuser</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@{
+    var db = ViewBag.List as IEnumerable<Boutique_Natural.Models.Ligne_Commande>;
+}
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>La Commande Accepter</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td>
+                            Nom Compléxe
+                        </td>
+                        <td>
+                            Date Commande
+                        </td>
+                        <td>
+                            libelle
+                        </td>
+                        <td>
+                            Quntité
+                        </td>
+                        <td>
+                            Prix Du Paiement
+                        </td>
+
+                        <td>
+                            image Produit
+                        </td>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td>
+                            Nom Compléxe
+                        </td>
+                        <td>
+                            Date Commande
+                        </td>
+                        <td>
+                            libelle
+                        </td>
+                        <td>
+                            Quntité
+                        </td>
+                        <td>
+                            Prix Du Paiement
+                        </td>
+
+                        <td>
+                            image Produit
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in db)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.commande.client.nom) @item.commande.client.prenom
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.commande.date_Cmd)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.article.Titre_Art)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.qte)
+                            </td>
+                            <td>
+                                @{
+                                    float prix = float.Parse(item.article.prix_unitaire.ToString());
+                                    int qte = item.qte;
+                                    float total = prix * qte;
+                                }
+                                @total DH
+                            </td>
+                            <td>
+                                <img src="~/Image_Article/@item.article.img1" class="img-thumbnail img-fluid" style="width:60px;height:60px">
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Admin{ }

@@ -1,0 +1,26 @@
+﻿@model Boutique_Natural.Models.Ville
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4 class="alert alert-success">Create New Ville</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ville_Name" class="control-label"></label>
+                <input asp-for="ville_Name" class="form-control" />
+                <span asp-validation-for="ville_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Admin{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

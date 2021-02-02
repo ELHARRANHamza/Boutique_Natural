@@ -1,0 +1,29 @@
+﻿@model Boutique_Natural.Models.Ville
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div>
+    <h4 class="alert alert-info">Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ville_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ville_Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id" class="btn btn-warning">Edit</a> |
+    <a asp-action="Index" class="btn btn-outline-warning">Back to List</a>
+</div>
+@section Admin{ }
+

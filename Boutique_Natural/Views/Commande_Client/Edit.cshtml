@@ -1,0 +1,65 @@
+﻿
+@model Boutique_Natural.ViewModel.Ligne_Cmd_ViewModel
+
+<hr />
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card shadow mb-4">
+            <form asp-action="Edit">
+                <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                    <h6 class="m-0 font-weight-bold text-primary">Commande D'Un Article @Model.article.Titre_Art a <i class="fa fa-calendar"></i> @Model.cmd.date_Cmd</h6>
+                </a>
+
+                <div class="collapse show" id="collapseCardExample">
+                    <div class="card-body">
+                        Nom Complexe :  <strong>@Model.clt.nom @Model.clt.prenom</strong>
+                        <br />
+                        Ville :  <strong>@Model.clt.GetVille.ville_Name</strong>
+                        <br />
+                        Tele :  <strong>@Model.clt.Tele</strong>
+                        <br />
+                        adresse :  <strong>@Model.clt.Adresse</strong>
+                        <br />
+                        email :  <strong>@Model.clt.email</strong>
+                        <br />
+                       
+                       
+                    </div>
+                    <div class="form-group" style="margin-left:10px">
+                        <button type="submit" class="btn btn-success btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">Valider</span>
+                        </button>
+                        <a asp-action="Index" class="btn btn-warning btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </span>
+                            <span class="text">Annuler</span>
+                        </a>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+
+
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="~/Admin/undraw_posting_photo.svg" alt="">
+                </div>
+                <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a constantly updated collection of beautiful svg images that you can use completely free and without attribution!</p>
+                <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+@section Admin{ }

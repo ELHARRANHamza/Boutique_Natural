@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Boutique_Natural.Models.Ligne_Commande>
+
+<h1 class="h3 mb-2 text-gray-800">Liste Des Commandes Refuser</h1>
+<p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-table"></i> la liste Du Commande Envoyer</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td>
+                            nom Compléxe
+                        </td>
+                        <td>
+                            Date Commande
+                        </td>
+                        <td>
+                            libelle
+                        </td>
+                        <td>
+                            Quntité
+                        </td>
+                      
+                        <td>
+                            Prix Du Paiement
+                        </td>
+
+                        <td>
+                            image Produit
+                        </td>
+</thead>
+                <tfoot>
+                    <tr>
+                        <td>
+                            nom Compléxe
+                        </td>
+                        <td>
+                            Date Commande
+                        </td>
+                        <td>
+                            libelle
+                        </td>
+                        <td>
+                            Quntité
+                        </td>
+                       
+                        <td>
+                            Prix Du Paiement
+                        </td>
+
+                        <td>
+                            image Produit
+                        </td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.commande.client.nom)
+                             @Html.DisplayFor(modelItem => item.commande.client.prenom)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.commande.date_Cmd)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.article.Titre_Art)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.qte)
+                        </td>
+                       
+                        <td>
+                            @{
+                                float prix = float.Parse(item.article.prix_unitaire.ToString());
+                                int qte = item.qte;
+                                float total = prix * qte;
+                            }
+                            @total DH
+                        </td>
+                        <td>
+                            <img src="~/Image_Article/@item.article.img1" class="img-thumbnail img-fluid" style="width:60px;height:60px">
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Admin{ }

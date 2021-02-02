@@ -1,0 +1,159 @@
+﻿@model Boutique_Natural.ViewModel.HomeViewModel
+
+    <section class="header3 cid-rbb39CwPuR" id="header3-6" data-sortbtn="btn-primary">
+
+
+
+        <div class="mbr-overlay" style="opacity: 0.7;">
+        </div>
+
+        <div class="container align-left">
+            <div class="row justify-content-center">
+                <div class="media-container-column mbr-white col-md-10">
+                    <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-5">Welcome in Your Boutique !!</h1>
+                    <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-1">
+                        This is Boutique Natural
+                    </h3>
+
+
+                    <div class="mbr-section-btn align-center pt-3"><a class="btn btn-md btn-info display-4" href="#shop6-2">Shop now</a></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="mbr-gallery cid-rbaMy1tJOl" once="shops" id="shop6-2" data-sortbtn="btn-primary">
+
+
+
+        <div>
+            <div class="mbr-shop" shop__showsidebar="">
+                <!-- Shop Gallery --><div class="row col-md-12">
+                    <div class="wrapper-shop-items col-xl-9">
+                       
+                        <div class="mbr-gallery-row">
+                            <div>
+                                <div class="shop-items">
+                                    @foreach (var item in Model.GetProduits)
+                                    {
+                                        <div class="mbr-gallery-item" data-tags="@item.GetCategories.cat_Nom" data-slide-to="0" data-seller="false" data-price="@item.prix_unitaire" data-oldprice="40">
+                                            <div class="item_overlay" data-toggle="modal"></div><div class="galleryItem" data-toggle="modal">
+                                                <div class="style_overlay"></div><div class="img_wraper"><img src="~/Image_Article/@item.img1" alt="" title=""></div><span class="onsale mbr-fonts-style display-7" data-onsale="false" style="display: none;">-50%</span>
+                                                <div class="sidebar_wraper">
+                                                    <h4 class="item-title mbr-fonts-style mbr-text display-5">@item.Titre_Art</h4><div class="price-block"><span class="shop-item-price mbr-fonts-style display-5">$@item.prix_unitaire</span><span class="oldprice mbr-fonts-style display-7" style="display: none;">$40</span></div><div class="card-description">
+                                                        @item.Description
+
+                                                        <div><br>Quantité Du Stock : <strong>@item.qte_Stck</strong></div>
+                                                    </div><div class="mbr-section-btn" buttons="0" style="display: none;"><a asp-action="Commande" asp-controller="Commande_Client" asp-route-id="@item.id" class="btn btn-secondary display-7">Buy now!</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+}
+                                    </div>
+                            </div><div class="clearfix"></div>
+                        </div>
+                        
+                    </div>
+                
+                
+                <div class="col-xl-3 sidebar">
+                <div class="sidebar-background">
+                    </div>
+                <div class="sidebar-block container range-slider">
+                    <h4 class="sidebar-title mbr-fonts-style mbr-text display-7">Price Range</h4>
+                    <div class="filter-cost" onselectstart="return false">
+                    <div class="price-controls">
+                        <label class="min-price">
+                        <input class="min-input" type="text" value="auto" name="min">
+                            </label><label class="max-price">
+                        <input class="max-input" type="text" value="auto" name="max">
+                                </label></div><div class="range-controls">
+                        <div class="scale"><div class="bar"></div></div><div class="toggle min-toggle"></div><div class="toggle max-toggle"></div></div></div> <div class="price-range mbr-section-btn" buttons="0"><a class="btn btn-sm btn-info" href="">Filter</a>
+                                   </div><div class="price-range-reset mbr-section-btn" buttons="0"><a class="btn btn-sm btn-success" href="">Show all</a></div></div><div class="sidebar-block container sidebar-categories"><h4 class="sidebar-title mbr-fonts-style mbr-text display-7">Filter</h4><div class="categories col-md-12"><div class="categories-titles"><!-- Filter --><div class="mbr-gallery-filter mbr-shop-filter container gallery-filter-active">
+    <ul buttons="0">
+                    <li class="mbr-gallery-filter-all active display-7">All</li>
+        </ul>
+</div></div></div></div></div>
+                </div><!-- Lightbox --><div class="shopItemsModal_wraper" style="z-index: 100;"><div class="shopItemsModalBg"></div><div class="shopItemsModal row"><div class="col-md-6 image-modal"></div><div class="col-md-6 text-modal"></div><div class="closeModal"><div class="close-modal-wrapper"></div></div></div></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="features8 cid-rbaKgiAJ5r" id="features8-1" data-sortbtn="btn-primary">
+
+
+
+        <div class="mbr-overlay" style="opacity: 0.9; background-color: rgb(255, 255, 255);">
+        </div>
+        <div class="container-fluid justify-content-center">
+
+
+
+
+            <div class="row content-row pt-5">
+                <div class="card pl-3 pr-3 col-12 col-md-6 col-lg-4">
+                    <div class="media pb-3">
+                        <div class="card-img align-self-center">
+                            <span class="mbr-iconfont mbri-delivery"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="card-title py-2 align-left mbr-fonts-style display-2">
+                                Delivery
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="card-box align-left">
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            Tell your customers about your delivery process. Does it require additional costs? Is it free? What are the borders of your delivery service?
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card pl-3 pr-3 col-12 col-md-6 col-lg-4">
+                    <div class="media pb-3">
+                        <div class="card-img align-self-center">
+                            <span class="mbr-iconfont mbri-refresh"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="card-title py-2 align-left mbr-fonts-style display-2">
+                                Return &amp; Refund
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="card-box align-left">
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            Make this process clear for your customers. If your goods cannot be returned, note it here. What if your customer's order is broken&nbsp;during delivery?
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card pl-3 pr-3 col-12 col-md-6 col-lg-4">
+                    <div class="media pb-3">
+                        <div class="card-img align-self-center">
+                            <span class="mbr-iconfont mbri-cash"></span>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="card-title py-2 align-left mbr-fonts-style display-2">
+                                Payment
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="card-box align-left">
+                        <p class="mbr-text mbr-fonts-style display-7">Specify available payment options. You can answer common questions about the payment process here.&nbsp;Bootstrap eСommerce Template.</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+   
+
+
+   
+@section Home{ }

@@ -1,0 +1,30 @@
+﻿@model Boutique_Natural.Models.Ville
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<h3 class="alert alert-danger">Are you sure you want to delete this?</h3>
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ville_Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ville_Name)
+        </dd>
+    </dl>
+</div>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="id" />
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <a asp-action="Index" class="btn btn-outline-danger">Back to List</a>
+</form>
+@section Admin{}

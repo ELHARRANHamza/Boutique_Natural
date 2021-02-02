@@ -1,0 +1,20 @@
+﻿@model Boutique_Natural.Models.Categories
+
+<div>
+    <h4>Categories</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cat_Nom)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cat_Nom)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id" class="btn btn-warning">Edit</a> |
+    <a asp-action="Index" class="btn btn-outline-warning">Back to List</a>
+</div>
+@section Admin{
+}

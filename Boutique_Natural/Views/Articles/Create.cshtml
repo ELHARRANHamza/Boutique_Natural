@@ -1,0 +1,54 @@
+﻿@model Boutique_Natural.ViewModel.Article_ViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4 class="alert alert-success">Create New Produit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="libelle" class="control-label"></label>
+                <input asp-for="libelle" class="form-control" />
+                <span asp-validation-for="libelle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea name="Description" asp-for="Description" cols="4" rows="6" class="form-control">
+</textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="qte_Stck" class="control-label"></label>
+                <input asp-for="qte_Stck" class="form-control" />
+                <span asp-validation-for="qte_Stck" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="prix_unitaire" class="control-label"></label>
+                <input asp-for="prix_unitaire" class="form-control" />
+                <span asp-validation-for="prix_unitaire" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="file1" class="control-label">Upload Image</label>
+                <input type="file" name="file1" asp-for="file1" class="form-control" />
+                <span asp-validation-for="file1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cat_Id" class="control-label"></label>
+                <select asp-for="Cat_Id" class="form-control" asp-items="@(new SelectList(Model.categories,"id","cat_Nom"))">
+                </select>
+                <span asp-validation-for="Cat_Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+@section Admin{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
